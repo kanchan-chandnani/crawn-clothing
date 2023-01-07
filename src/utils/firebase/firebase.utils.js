@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getAuth, signInWithRedirect, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
+import { getAuth, signInWithRedirect, signOut, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth'
 import { getFirestore, doc, getDoc, setDoc } from 'firebase/firestore'
 import { useSearchParams } from 'react-router-dom';
 
@@ -54,4 +54,10 @@ export const createUserDocumentFromAuth = async (userAuth, additionalInformation
 export const signInAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
   return await signInWithEmailAndPassword(auth, email, password)
+}
+
+export const signOutUser = () => signOut(auth);
+
+export const onAuthStateChangeListener = (callback) => {
+  onAuthStateChanged(auth, callback)
 }
