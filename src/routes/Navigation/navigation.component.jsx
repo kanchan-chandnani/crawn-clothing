@@ -7,9 +7,9 @@ import { UserContext } from "../../components/contexts/user.context";
 import { CartContext } from "../../components/contexts/cart.context";
 
 import CartIcon from "../../components/cart-icon/cart-icon.component";
-import './navigation.styles.scss'
 import CartDropdown from "../../components/cart-dropdown/cart-dropdown.component";
-import userEvent from "@testing-library/user-event";
+
+import './navigation.styles.scss'
 
 const Navigation = () => {
     const { currentUser } = useContext(UserContext)
